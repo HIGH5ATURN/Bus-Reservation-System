@@ -1,0 +1,172 @@
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Bus_Reservation_System
+{
+    public sealed class Database
+    {
+        private Database() { }
+
+        private static Database instance;
+
+        public static Database GetInstance()
+        {
+            if(instance == null)
+            {
+                instance = new Database();
+            }
+            
+            return instance;
+        }
+
+        private static OracleConnection GetDBConnection(string host, int port, String sid, String user, string password)
+        {
+            string connString = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=" + host + ")(PORT=" + port + "))(CONNECT_DATA=(SERVICE_NAME=" + sid + ")));User Id=" + user + ";Password=" + password;
+            OracleConnection conn = new OracleConnection();
+            conn.ConnectionString = connString;
+            return conn;
+        }
+
+        OracleConnection con = GetDBConnection("192.168.153.218", 1521, "XEPDB1", "oni", "0707");
+
+        public bool newReceptionist(string name,string contactNo,DateOnly dob, string password)
+        {
+            string insertQuery = "INSERT INTO receptionist (name, ContactNumber,DOB, Password) VALUES (:name, :contactno,:dob, :password)";
+            try
+            {
+                
+                    con.Open();
+
+                OracleCommand command = new OracleCommand();
+
+                command.CommandText = insertQuery;
+                command.Connection = con;
+                    
+                    
+                 command.Parameters.Add(":name", OracleDbType.Varchar2).Value = name;
+                 command.Parameters.Add(":contactno", OracleDbType.Varchar2).Value = contactNo;
+                 command.Parameters.Add(":dob",OracleDbType.Date).Value=dob.ToString("MM/dd/yyyy");
+                 command.Parameters.Add(":password", OracleDbType.Varchar2).Value = password;
+
+                    
+                        int rowsInserted = command.ExecuteNonQuery();
+                con.Close();
+                if (rowsInserted > 0)
+                {
+                    Console.WriteLine("Successfully Registered as a Receptionist!");
+
+                    return true;
+                            
+                }
+                            
+                    Console.WriteLine("Failed to register as a receptionist!");
+                        
+                    return false;
+              
+              
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred(Registration): " + ex.Message);
+
+                return false;
+            }
+        }
+
+        public Boolean ReceptionistLogin(string ID, string password)
+        {
+            
+            try
+            {
+                Boolean loggedIn = false;
+                con.Open();
+
+                OracleCommand command = new OracleCommand();
+                command.Connection = con;
+                command.CommandText = "Receptionist_login";
+                command.CommandType = CommandType.StoredProcedure;
+
+
+
+                OracleParameter retval = new OracleParameter("ret", OracleDbType.Varchar2,20);
+                retval.Direction = ParameterDirection.ReturnValue;
+                command.Parameters.Add(retval);
+                
+
+                //p_id parameter
+                OracleParameter p_id = new OracleParameter("p_id", OracleDbType.Varchar2);
+                p_id.Direction= ParameterDirection.Input;
+                p_id.Value = ID;
+                command.Parameters.Add(p_id);
+                //MessageBox.Show(p_id.Value.ToString());
+                //p_pass parameter
+                OracleParameter p_password = new OracleParameter("p_password",OracleDbType.Varchar2);
+                p_password.Direction= ParameterDirection.Input;
+                p_password.Value = password;
+                command.Parameters.Add(p_password);
+
+                //now for return 
+               
+                command.ExecuteNonQuery();
+                //MessageBox.Show(command.Parameters["ret"].Value.ToString());
+                if (command.Parameters["ret"].Value.ToString() == "true")
+                {
+                    loggedIn = true;
+                  
+                }
+              
+               
+
+                con.Close();
+                return loggedIn;
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("login error: "+ex.Message);
+                con.Close();
+                return false;
+            }
+        }
+
+
+        public void LoadReceptionist(DataGridView dataGrid)
+        {
+            try
+            {
+                con.Open();
+                string sql = "select ReceptionistID,name,contactNumber,Dob from receptionist";
+                OracleCommand oracleCommand = new OracleCommand();
+
+                oracleCommand.CommandText = sql;
+                oracleCommand.Connection = con;
+
+
+                DataTable dataTable = new DataTable();
+
+                // Fill the DataTable with the results of the SELECT query
+                OracleDataReader reader = oracleCommand.ExecuteReader();
+
+                dataTable.Load(reader);
+
+
+
+                dataGrid.DataSource = dataTable;
+
+
+                con.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message); con.Close();
+            }
+        }
+    }
+}

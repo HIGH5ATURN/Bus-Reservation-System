@@ -1,0 +1,30 @@
+D:\PROJECTS\Bus Reservation System\bin\Debug\net6.0-windows\Bus Reservation System.exe
+D:\PROJECTS\Bus Reservation System\bin\Debug\net6.0-windows\Bus Reservation System.deps.json
+D:\PROJECTS\Bus Reservation System\bin\Debug\net6.0-windows\Bus Reservation System.runtimeconfig.json
+D:\PROJECTS\Bus Reservation System\bin\Debug\net6.0-windows\Bus Reservation System.dll
+D:\PROJECTS\Bus Reservation System\bin\Debug\net6.0-windows\Bus Reservation System.pdb
+D:\PROJECTS\Bus Reservation System\bin\Debug\net6.0-windows\Oracle.ManagedDataAccess.dll
+D:\PROJECTS\Bus Reservation System\bin\Debug\net6.0-windows\System.Diagnostics.PerformanceCounter.dll
+D:\PROJECTS\Bus Reservation System\bin\Debug\net6.0-windows\System.DirectoryServices.dll
+D:\PROJECTS\Bus Reservation System\bin\Debug\net6.0-windows\System.DirectoryServices.Protocols.dll
+D:\PROJECTS\Bus Reservation System\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Diagnostics.PerformanceCounter.dll
+D:\PROJECTS\Bus Reservation System\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.DirectoryServices.dll
+D:\PROJECTS\Bus Reservation System\bin\Debug\net6.0-windows\runtimes\linux\lib\net6.0\System.DirectoryServices.Protocols.dll
+D:\PROJECTS\Bus Reservation System\bin\Debug\net6.0-windows\runtimes\osx\lib\net6.0\System.DirectoryServices.Protocols.dll
+D:\PROJECTS\Bus Reservation System\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.DirectoryServices.Protocols.dll
+D:\PROJECTS\Bus Reservation System\obj\Debug\net6.0-windows\Bus Reservation System.csproj.AssemblyReference.cache
+D:\PROJECTS\Bus Reservation System\obj\Debug\net6.0-windows\Bus_Reservation_System.Form1.resources
+D:\PROJECTS\Bus Reservation System\obj\Debug\net6.0-windows\Bus Reservation System.csproj.GenerateResource.cache
+D:\PROJECTS\Bus Reservation System\obj\Debug\net6.0-windows\Bus Reservation System.GeneratedMSBuildEditorConfig.editorconfig
+D:\PROJECTS\Bus Reservation System\obj\Debug\net6.0-windows\Bus Reservation System.AssemblyInfoInputs.cache
+D:\PROJECTS\Bus Reservation System\obj\Debug\net6.0-windows\Bus Reservation System.AssemblyInfo.cs
+D:\PROJECTS\Bus Reservation System\obj\Debug\net6.0-windows\Bus Reservation System.csproj.CoreCompileInputs.cache
+D:\PROJECTS\Bus Reservation System\obj\Debug\net6.0-windows\Bus Reservation System.csproj.CopyComplete
+D:\PROJECTS\Bus Reservation System\obj\Debug\net6.0-windows\Bus Reservation System.dll
+D:\PROJECTS\Bus Reservation System\obj\Debug\net6.0-windows\refint\Bus Reservation System.dll
+D:\PROJECTS\Bus Reservation System\obj\Debug\net6.0-windows\Bus Reservation System.pdb
+D:\PROJECTS\Bus Reservation System\obj\Debug\net6.0-windows\Bus Reservation System.genruntimeconfig.cache
+D:\PROJECTS\Bus Reservation System\obj\Debug\net6.0-windows\ref\Bus Reservation System.dll
+D:\PROJECTS\Bus Reservation System\obj\Debug\net6.0-windows\Bus_Reservation_System.RegistrationAsReceptionist.resources
+D:\PROJECTS\Bus Reservation System\obj\Debug\net6.0-windows\Bus_Reservation_System.Form2.resources
+D:\PROJECTS\Bus Reservation System\obj\Debug\net6.0-windows\Bus_Reservation_System.ReceptionistList.resources
