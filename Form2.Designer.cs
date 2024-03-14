@@ -28,75 +28,77 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btn_Login = new Button();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
+            btn_AddNewDriver = new Button();
+            btn_AddnewBus = new Button();
+            btn_AddNewStation = new Button();
+            btn_AddNewRoute = new Button();
+            btn_BookTicket = new Button();
             label1 = new Label();
             label2 = new Label();
-            button5 = new Button();
+            btn_viewTodaysSchedules = new Button();
+            btn_viewTrips = new Button();
+            panel1 = new Panel();
             SuspendLayout();
             // 
-            // btn_Login
+            // btn_AddNewDriver
             // 
-            btn_Login.BackColor = Color.LightCoral;
-            btn_Login.FlatStyle = FlatStyle.Flat;
-            btn_Login.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_Login.Location = new Point(76, 281);
-            btn_Login.Name = "btn_Login";
-            btn_Login.Size = new Size(251, 137);
-            btn_Login.TabIndex = 6;
-            btn_Login.Text = "Add new driver";
-            btn_Login.UseVisualStyleBackColor = false;
+            btn_AddNewDriver.BackColor = Color.LightCoral;
+            btn_AddNewDriver.FlatStyle = FlatStyle.Flat;
+            btn_AddNewDriver.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_AddNewDriver.Location = new Point(76, 281);
+            btn_AddNewDriver.Name = "btn_AddNewDriver";
+            btn_AddNewDriver.Size = new Size(251, 137);
+            btn_AddNewDriver.TabIndex = 6;
+            btn_AddNewDriver.Text = "Add new driver";
+            btn_AddNewDriver.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btn_AddnewBus
             // 
-            button1.BackColor = SystemColors.ActiveCaption;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(76, 138);
-            button1.Name = "button1";
-            button1.Size = new Size(251, 137);
-            button1.TabIndex = 7;
-            button1.Text = "Add new bus";
-            button1.UseVisualStyleBackColor = false;
+            btn_AddnewBus.BackColor = SystemColors.ActiveCaption;
+            btn_AddnewBus.FlatStyle = FlatStyle.Flat;
+            btn_AddnewBus.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_AddnewBus.Location = new Point(76, 138);
+            btn_AddnewBus.Name = "btn_AddnewBus";
+            btn_AddnewBus.Size = new Size(251, 137);
+            btn_AddnewBus.TabIndex = 7;
+            btn_AddnewBus.Text = "Add new bus";
+            btn_AddnewBus.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btn_AddNewStation
             // 
-            button2.BackColor = SystemColors.Highlight;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.Location = new Point(333, 138);
-            button2.Name = "button2";
-            button2.Size = new Size(251, 137);
-            button2.TabIndex = 8;
-            button2.Text = "Add new station";
-            button2.UseVisualStyleBackColor = false;
+            btn_AddNewStation.BackColor = SystemColors.Highlight;
+            btn_AddNewStation.FlatStyle = FlatStyle.Flat;
+            btn_AddNewStation.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_AddNewStation.Location = new Point(333, 138);
+            btn_AddNewStation.Name = "btn_AddNewStation";
+            btn_AddNewStation.Size = new Size(251, 137);
+            btn_AddNewStation.TabIndex = 8;
+            btn_AddNewStation.Text = "Add new station";
+            btn_AddNewStation.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btn_AddNewRoute
             // 
-            button3.BackColor = Color.Turquoise;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            button3.Location = new Point(76, 424);
-            button3.Name = "button3";
-            button3.Size = new Size(251, 137);
-            button3.TabIndex = 9;
-            button3.Text = "Add new Route";
-            button3.UseVisualStyleBackColor = false;
+            btn_AddNewRoute.BackColor = Color.Turquoise;
+            btn_AddNewRoute.FlatStyle = FlatStyle.Flat;
+            btn_AddNewRoute.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_AddNewRoute.Location = new Point(76, 424);
+            btn_AddNewRoute.Name = "btn_AddNewRoute";
+            btn_AddNewRoute.Size = new Size(251, 137);
+            btn_AddNewRoute.TabIndex = 9;
+            btn_AddNewRoute.Text = "Add new Route";
+            btn_AddNewRoute.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btn_BookTicket
             // 
-            button4.BackColor = Color.PaleGreen;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            button4.Location = new Point(721, 138);
-            button4.Name = "button4";
-            button4.Size = new Size(320, 137);
-            button4.TabIndex = 10;
-            button4.Text = "Book Ticket for a passenger";
-            button4.UseVisualStyleBackColor = false;
+            btn_BookTicket.BackColor = Color.PaleGreen;
+            btn_BookTicket.FlatStyle = FlatStyle.Flat;
+            btn_BookTicket.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_BookTicket.Location = new Point(652, 138);
+            btn_BookTicket.Name = "btn_BookTicket";
+            btn_BookTicket.Size = new Size(413, 137);
+            btn_BookTicket.TabIndex = 10;
+            btn_BookTicket.Text = "Book Ticket for a passenger";
+            btn_BookTicket.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -112,37 +114,59 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label2.Location = new Point(829, 50);
+            label2.Location = new Point(807, 50);
             label2.Name = "label2";
             label2.Size = new Size(117, 54);
             label2.TabIndex = 12;
             label2.Text = "Book";
             // 
-            // button5
+            // btn_viewTodaysSchedules
             // 
-            button5.BackColor = Color.PaleGreen;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            button5.Location = new Point(721, 281);
-            button5.Name = "button5";
-            button5.Size = new Size(320, 137);
-            button5.TabIndex = 13;
-            button5.Text = "View Todays Schedules";
-            button5.UseVisualStyleBackColor = false;
+            btn_viewTodaysSchedules.BackColor = Color.PaleGreen;
+            btn_viewTodaysSchedules.FlatStyle = FlatStyle.Flat;
+            btn_viewTodaysSchedules.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_viewTodaysSchedules.Location = new Point(333, 281);
+            btn_viewTodaysSchedules.Name = "btn_viewTodaysSchedules";
+            btn_viewTodaysSchedules.Size = new Size(251, 137);
+            btn_viewTodaysSchedules.TabIndex = 13;
+            btn_viewTodaysSchedules.Text = "View Todays Schedules";
+            btn_viewTodaysSchedules.UseVisualStyleBackColor = false;
+            // 
+            // btn_viewTrips
+            // 
+            btn_viewTrips.BackColor = Color.Turquoise;
+            btn_viewTrips.FlatStyle = FlatStyle.Flat;
+            btn_viewTrips.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_viewTrips.Location = new Point(333, 424);
+            btn_viewTrips.Name = "btn_viewTrips";
+            btn_viewTrips.Size = new Size(251, 137);
+            btn_viewTrips.TabIndex = 14;
+            btn_viewTrips.Text = "View Trips";
+            btn_viewTrips.UseVisualStyleBackColor = false;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.DarkRed;
+            panel1.Location = new Point(614, 12);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(10, 583);
+            panel1.TabIndex = 15;
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1099, 606);
-            Controls.Add(button5);
+            Controls.Add(panel1);
+            Controls.Add(btn_viewTrips);
+            Controls.Add(btn_viewTodaysSchedules);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(btn_Login);
+            Controls.Add(btn_BookTicket);
+            Controls.Add(btn_AddNewRoute);
+            Controls.Add(btn_AddNewStation);
+            Controls.Add(btn_AddnewBus);
+            Controls.Add(btn_AddNewDriver);
             Name = "Form2";
             Text = "Form2";
             ResumeLayout(false);
@@ -151,13 +175,15 @@
 
         #endregion
 
-        private Button btn_Login;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
+        private Button btn_AddNewDriver;
+        private Button btn_AddnewBus;
+        private Button btn_AddNewStation;
+        private Button btn_AddNewRoute;
+        private Button btn_BookTicket;
         private Label label1;
         private Label label2;
-        private Button button5;
+        private Button btn_viewTodaysSchedules;
+        private Button btn_viewTrips;
+        private Panel panel1;
     }
 }

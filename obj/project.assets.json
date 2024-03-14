@@ -588,11 +588,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PROJECTS\\Bus Reservation System\\Bus Reservation System.csproj",
+      "projectUniqueName": "D:\\PROJECTS\\Bus Reservation System - Copy\\Bus Reservation System.csproj",
       "projectName": "Bus Reservation System",
-      "projectPath": "D:\\PROJECTS\\Bus Reservation System\\Bus Reservation System.csproj",
+      "projectPath": "D:\\PROJECTS\\Bus Reservation System - Copy\\Bus Reservation System.csproj",
       "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-      "outputPath": "D:\\PROJECTS\\Bus Reservation System\\obj\\",
+      "outputPath": "D:\\PROJECTS\\Bus Reservation System - Copy\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
