@@ -170,6 +170,9 @@ namespace Bus_Reservation_System
         }
 
 
-        public bool AddDriver()
+        public bool AddDriver(string name, string contactNo, int licenceNumber)
+        {
+
+        }
     }
 }
