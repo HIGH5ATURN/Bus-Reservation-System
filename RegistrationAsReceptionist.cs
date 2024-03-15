@@ -36,9 +36,11 @@ namespace Bus_Reservation_System
                 try
                 {
 
+                    //create a receptionist object
 
+                    Receptionist receptionist = new Receptionist(txt_name.Text, txt_Contact.Text, date, Encryption.EncryptPassword(txt_pass.Text));
 
-                    if (db.newReceptionist(txt_name.Text, txt_Contact.Text, date, Encryption.EncryptPassword(txt_pass.Text)))
+                    if (db.newReceptionist(receptionist))
                     {
                         this.Hide();
                         new Form1().Show();

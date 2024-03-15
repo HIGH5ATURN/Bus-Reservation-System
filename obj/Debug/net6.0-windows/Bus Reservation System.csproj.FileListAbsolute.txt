@@ -58,3 +58,5 @@ D:\PROJECTS\Bus Reservation System - Copy\obj\Debug\net6.0-windows\refint\Bus Re
 D:\PROJECTS\Bus Reservation System - Copy\obj\Debug\net6.0-windows\Bus Reservation System.pdb
 D:\PROJECTS\Bus Reservation System - Copy\obj\Debug\net6.0-windows\Bus Reservation System.genruntimeconfig.cache
 D:\PROJECTS\Bus Reservation System - Copy\obj\Debug\net6.0-windows\ref\Bus Reservation System.dll
+D:\PROJECTS\Bus Reservation System - Copy\obj\Debug\net6.0-windows\Bus_Reservation_System.DriverForm.resources
+D:\PROJECTS\Bus Reservation System - Copy\obj\Debug\net6.0-windows\Bus_Reservation_System.DriverInfoForm.resources
