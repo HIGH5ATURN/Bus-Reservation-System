@@ -35,13 +35,13 @@ namespace Bus_Reservation_System
 
         OracleConnection con = GetDBConnection("192.168.0.223", 1521, "XEPDB1", "oni", "0707");
 
-        public bool newReceptionist(string name,string contactNo,DateOnly dob, string password)
+        public bool newReceptionist(Receptionist receptionist)
         {
             string insertQuery = "INSERT INTO receptionist (name, ContactNumber,DOB, Password) VALUES (:name, :contactno,:dob, :password)";
             try
             {
                 
-                    con.Open();
+                con.Open();
 
                 OracleCommand command = new OracleCommand();
 
@@ -49,23 +49,25 @@ namespace Bus_Reservation_System
                 command.Connection = con;
                     
                     
-                 command.Parameters.Add(":name", OracleDbType.Varchar2).Value = name;
-                 command.Parameters.Add(":contactno", OracleDbType.Varchar2).Value = contactNo;
-                 command.Parameters.Add(":dob",OracleDbType.Date).Value=dob.ToString("MM/dd/yyyy");
-                 command.Parameters.Add(":password", OracleDbType.Varchar2).Value = password;
+                command.Parameters.Add(":name", OracleDbType.Varchar2).Value =receptionist.name;
+                command.Parameters.Add(":contactno", OracleDbType.Varchar2).Value = receptionist.contactNumber;
+                command.Parameters.Add(":dob",OracleDbType.Date).Value=receptionist.Dob.ToString("MM/dd/yyyy");
+                command.Parameters.Add(":password", OracleDbType.Varchar2).Value = receptionist.password;
 
                     
-                        int rowsInserted = command.ExecuteNonQuery();
+                int rowsInserted = command.ExecuteNonQuery();
+
                 con.Close();
+
                 if (rowsInserted > 0)
                 {
-                    Console.WriteLine("Successfully Registered as a Receptionist!");
+                  MessageBox.Show("Successfully Registered as a Receptionist!");
 
                     return true;
                             
                 }
-                            
-                    Console.WriteLine("Failed to register as a receptionist!");
+
+                    MessageBox.Show("Failed to register as a receptionist!");
                         
                     return false;
               
@@ -170,9 +172,85 @@ namespace Bus_Reservation_System
         }
 
 
-        public bool AddDriver(string name, string contactNo, int licenceNumber)
+        public bool AddDriver(Driver driver)
         {
+            string insertQuery = "INSERT INTO Driver (name,LicenseNumber, ContactNumber,DOB) VALUES (:name,:licenseno ,:contactno,:dob)";
+            try
+            {
 
+                con.Open();
+
+                OracleCommand command = new OracleCommand();
+
+                command.CommandText = insertQuery;
+                command.Connection = con;
+
+
+                command.Parameters.Add(":name", OracleDbType.Varchar2).Value = driver.DriverName;
+                command.Parameters.Add(":licenseno", OracleDbType.Varchar2).Value = driver.licenceNumber;
+                command.Parameters.Add(":contactno", OracleDbType.Varchar2).Value = driver.contactNumber;
+                command.Parameters.Add(":dob", OracleDbType.Date).Value = driver.Dob.ToString("MM/dd/yyyy");
+           
+
+
+                int rowsInserted = command.ExecuteNonQuery();
+
+                con.Close();
+
+                if (rowsInserted > 0)
+                {
+                    MessageBox.Show("Successfully Added a new Driver!");
+
+                    return true;
+
+                }
+
+                MessageBox.Show("Failed to add a driver!");
+
+                return false;
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred(Registration): " + ex.Message);
+
+                return false;
+            }
+
+        }
+
+        public void LoadDriverInfo(DataGridView dataGrid)
+        {
+            try
+            {
+                con.Open();
+                string sql = "select * from Driver";
+                OracleCommand oracleCommand = new OracleCommand();
+
+                oracleCommand.CommandText = sql;
+                oracleCommand.Connection = con;
+
+
+                DataTable dataTable = new DataTable();
+
+                // Fill the DataTable with the results of the SELECT query
+                OracleDataReader reader = oracleCommand.ExecuteReader();
+
+                dataTable.Load(reader);
+
+
+
+                dataGrid.DataSource = dataTable;
+
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message); con.Close();
+            }
         }
     }
 }
