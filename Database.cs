@@ -77,6 +77,7 @@ namespace Bus_Reservation_System
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred(Registration): " + ex.Message);
+                con.Close();
 
                 return false;
             }
