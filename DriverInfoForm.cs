@@ -29,5 +29,11 @@ namespace Bus_Reservation_System
 
             new Form2().Show();
         }
+
+        private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            //now create some textbox and take value from the datagrid then add a remove button
+            
+        }
     }
 }
