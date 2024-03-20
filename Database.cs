@@ -33,7 +33,7 @@ namespace Bus_Reservation_System
             return conn;
         }
 
-        OracleConnection con = GetDBConnection("192.168.0.223", 1521, "XEPDB1", "oni", "0707");
+        OracleConnection con = GetDBConnection("localhost", 1521, "XEPDB1", "oni", "0707");
 
         public bool newReceptionist(Receptionist receptionist)
         {
