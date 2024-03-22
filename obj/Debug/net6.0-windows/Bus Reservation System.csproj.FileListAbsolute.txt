@@ -94,3 +94,40 @@ D:\PROJECTS\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus Reservation Syst
 D:\PROJECTS\Bus-Reservation-System\obj\Debug\net6.0-windows\ref\Bus Reservation System.dll
 D:\PROJECTS\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus_Reservation_System.AddNewStationForm.resources
 D:\PROJECTS\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus_Reservation_System.AddRouteForm.resources
+E:\DBMS PROJECT\Bus-Reservation-System\bin\Debug\net6.0-windows\Bus Reservation System.exe
+E:\DBMS PROJECT\Bus-Reservation-System\bin\Debug\net6.0-windows\Bus Reservation System.deps.json
+E:\DBMS PROJECT\Bus-Reservation-System\bin\Debug\net6.0-windows\Bus Reservation System.runtimeconfig.json
+E:\DBMS PROJECT\Bus-Reservation-System\bin\Debug\net6.0-windows\Bus Reservation System.dll
+E:\DBMS PROJECT\Bus-Reservation-System\bin\Debug\net6.0-windows\Bus Reservation System.pdb
+E:\DBMS PROJECT\Bus-Reservation-System\bin\Debug\net6.0-windows\Oracle.ManagedDataAccess.dll
+E:\DBMS PROJECT\Bus-Reservation-System\bin\Debug\net6.0-windows\System.Diagnostics.PerformanceCounter.dll
+E:\DBMS PROJECT\Bus-Reservation-System\bin\Debug\net6.0-windows\System.DirectoryServices.dll
+E:\DBMS PROJECT\Bus-Reservation-System\bin\Debug\net6.0-windows\System.DirectoryServices.Protocols.dll
+E:\DBMS PROJECT\Bus-Reservation-System\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Diagnostics.PerformanceCounter.dll
+E:\DBMS PROJECT\Bus-Reservation-System\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.DirectoryServices.dll
+E:\DBMS PROJECT\Bus-Reservation-System\bin\Debug\net6.0-windows\runtimes\linux\lib\net6.0\System.DirectoryServices.Protocols.dll
+E:\DBMS PROJECT\Bus-Reservation-System\bin\Debug\net6.0-windows\runtimes\osx\lib\net6.0\System.DirectoryServices.Protocols.dll
+E:\DBMS PROJECT\Bus-Reservation-System\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.DirectoryServices.Protocols.dll
+E:\DBMS PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus Reservation System.csproj.AssemblyReference.cache
+E:\DBMS PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus_Reservation_System.AddBusForm.resources
+E:\DBMS PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus_Reservation_System.AddNewStationForm.resources
+E:\DBMS PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus_Reservation_System.AddRouteForm.resources
+E:\DBMS PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus_Reservation_System.DriverForm.resources
+E:\DBMS PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus_Reservation_System.DriverInfoForm.resources
+E:\DBMS PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus_Reservation_System.Form1.resources
+E:\DBMS PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus_Reservation_System.Form2.resources
+E:\DBMS PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus_Reservation_System.List_Bus_Form.resources
+E:\DBMS PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus_Reservation_System.ReceptionistList.resources
+E:\DBMS PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus_Reservation_System.RegistrationAsReceptionist.resources
+E:\DBMS PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus Reservation System.csproj.GenerateResource.cache
+E:\DBMS PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus Reservation System.GeneratedMSBuildEditorConfig.editorconfig
+E:\DBMS PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus Reservation System.AssemblyInfoInputs.cache
+E:\DBMS PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus Reservation System.AssemblyInfo.cs
+E:\DBMS PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus Reservation System.csproj.CoreCompileInputs.cache
+E:\DBMS PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus Reservation System.sourcelink.json
+E:\DBMS PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus Reservation System.csproj.CopyComplete
+E:\DBMS PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus Reservation System.dll
+E:\DBMS PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\refint\Bus Reservation System.dll
+E:\DBMS PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus Reservation System.pdb
+E:\DBMS PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus Reservation System.genruntimeconfig.cache
+E:\DBMS PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\ref\Bus Reservation System.dll

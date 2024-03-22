@@ -40,6 +40,7 @@
             panel1 = new Panel();
             btn_goBack = new Button();
             btn_ViewAllDriver = new Button();
+            btn_viewAll_Bus = new Button();
             SuspendLayout();
             // 
             // btn_AddNewDriver
@@ -66,6 +67,7 @@
             btn_AddnewBus.TabIndex = 7;
             btn_AddnewBus.Text = "Add new bus";
             btn_AddnewBus.UseVisualStyleBackColor = false;
+            btn_AddnewBus.Click += btn_AddnewBus_Click;
             // 
             // btn_AddNewStation
             // 
@@ -182,11 +184,25 @@
             btn_ViewAllDriver.UseVisualStyleBackColor = false;
             btn_ViewAllDriver.Click += btn_ViewAllDriver_Click;
             // 
+            // btn_viewAll_Bus
+            // 
+            btn_viewAll_Bus.BackColor = Color.GreenYellow;
+            btn_viewAll_Bus.FlatStyle = FlatStyle.Flat;
+            btn_viewAll_Bus.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_viewAll_Bus.Location = new Point(402, 386);
+            btn_viewAll_Bus.Name = "btn_viewAll_Bus";
+            btn_viewAll_Bus.Size = new Size(203, 83);
+            btn_viewAll_Bus.TabIndex = 18;
+            btn_viewAll_Bus.Text = "View All Bus";
+            btn_viewAll_Bus.UseVisualStyleBackColor = false;
+            btn_viewAll_Bus.Click += btn_viewAll_Bus_Click;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1306, 662);
+            Controls.Add(btn_viewAll_Bus);
             Controls.Add(btn_ViewAllDriver);
             Controls.Add(btn_goBack);
             Controls.Add(panel1);
@@ -219,5 +235,6 @@
         private Panel panel1;
         private Button btn_goBack;
         private Button btn_ViewAllDriver;
+        private Button btn_viewAll_Bus;
     }
 }
