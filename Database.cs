@@ -216,6 +216,7 @@ namespace Bus_Reservation_System
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred(Registration): " + ex.Message);
+                con.Close();
 
                 return false;
             }
@@ -252,6 +253,89 @@ namespace Bus_Reservation_System
             {
                 MessageBox.Show(ex.Message); con.Close();
             }
+        }
+
+        public bool AddNewStation(string stationName)
+        {
+            string insertQuery = "INSERT INTO Station (StationName) VALUES (:stationname)";
+            try
+            {
+
+                con.Open();
+
+                OracleCommand command = new OracleCommand();
+
+                command.CommandText = insertQuery;
+                command.Connection = con;
+
+
+                command.Parameters.Add(":stationname", OracleDbType.Varchar2).Value = stationName;
+
+
+                int rowsInserted = command.ExecuteNonQuery();
+
+                con.Close();
+
+                if (rowsInserted > 0)
+                {
+                    MessageBox.Show("Successfully Added a new Station!");
+
+                    return true;
+
+                }
+
+                MessageBox.Show("Failed to add a Station!");
+
+                return false;
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred(Adding Station): " + ex.Message);
+                con.Close();
+
+                return false;
+            }
+        }
+
+
+        public List<string> FetchAllStation()
+        {
+            List<string> Stations = new List<string>();
+            try
+            {
+                con.Open();
+                string sql = "select * from Station";
+                OracleCommand oracleCommand = new OracleCommand();
+
+                oracleCommand.CommandText = sql;
+                oracleCommand.Connection = con;
+
+
+                
+
+                // Fill the DataTable with the results of the SELECT query
+                OracleDataReader reader = oracleCommand.ExecuteReader();
+
+               
+                while(reader.Read())
+                {
+                    Stations.Add(reader[0].ToString());
+                }
+
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message); 
+                con.Close();
+            }
+
+
+            return Stations;
         }
     }
 }
