@@ -6,7 +6,7 @@ Create table Driver
     ContactNumber varchar2(11),
     DOB Date,
     CONSTRAINT pk_Driver primary key(DriverID),
-        CONSTRAINT check_ReceptionistcontactNumber_format
+        CONSTRAINT check_DrivercontactNumber_format
     CHECK (REGEXP_LIKE(ContactNumber, '^01[0-9]{9}'))
 );
 
@@ -35,7 +35,7 @@ CREATE TABLE Conductor
   ContactNumber varchar2(11) ,
       DOB Date,
   CONSTRAINT pk_Conductor primary key(ConductorID),
-      CONSTRAINT check_ReceptionistcontactNumber_format
+      CONSTRAINT check_ConductorcontactNumber_format
     CHECK (REGEXP_LIKE(ContactNumber, '^01[0-9]{9}'))
 );
 
@@ -197,7 +197,7 @@ start with 1;
 CREATE or REPLACE FUNCTION genDriverID(p_Dob IN DATE)
 return varchar2 AS
 v_Dob DATE:=p_Dob;
-v_id varchar2(11):='R';
+v_id varchar2(11):='D';
 Begin
     v_id:=v_id||TO_CHAR(v_Dob,'YYYY')||TO_CHAR(v_Dob,'MM')||LPAD(seq_driver.nextval,3,0);
 return v_id;
@@ -211,13 +211,3 @@ BEGIN
   :new.DriverID:=genDriverID(:new.DoB);
 END;
 /
-
-select * from Receptionist where REGEXP_LIKE(contactNumber, '^01[0-9]{9}');
-
-ALTER TABLE Passenger
-ADD CONSTRAINT check_Passenger_email
-check ( email like '%@%.com');
-
-delete
-from Driver
-where DriverID='R200308001';
