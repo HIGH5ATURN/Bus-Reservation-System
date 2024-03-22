@@ -78,6 +78,7 @@
             btn_AddNewStation.TabIndex = 8;
             btn_AddNewStation.Text = "Add new station";
             btn_AddNewStation.UseVisualStyleBackColor = false;
+            btn_AddNewStation.Click += btn_AddNewStation_Click;
             // 
             // btn_AddNewRoute
             // 
@@ -90,6 +91,7 @@
             btn_AddNewRoute.TabIndex = 9;
             btn_AddNewRoute.Text = "Add new Route";
             btn_AddNewRoute.UseVisualStyleBackColor = false;
+            btn_AddNewRoute.Click += btn_AddNewRoute_Click;
             // 
             // btn_BookTicket
             // 
