@@ -255,6 +255,79 @@ namespace Bus_Reservation_System
             }
         }
 
+        public bool AddBus(Bus bus)
+        {
+            string insertQuery = "INSERT INTO Bus (BusNumber,model,capacity) VALUES (:bus_number,:model ,:capacity)";
+            try
+            {
+
+                con.Open();
+
+                OracleCommand command = new OracleCommand();
+
+                command.CommandText = insertQuery;
+                command.Connection = con;
+
+
+                command.Parameters.Add(":bus_number", OracleDbType.Varchar2).Value = bus.BusNumber;
+                command.Parameters.Add(":model", OracleDbType.Varchar2).Value = bus.BusModel;
+                command.Parameters.Add(":capacity", OracleDbType.Varchar2).Value = bus.Capacity;
+
+                int rowsInserted = command.ExecuteNonQuery();
+
+                con.Close();
+
+                if (rowsInserted > 0)
+                {
+                    MessageBox.Show("Successfully Added a new Bus!");
+
+                    return true;
+
+                }
+
+                MessageBox.Show("Failed to add a Bus!");
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred(Bus Registration): " + ex.Message);
+                con.Close();
+
+                return false;
+            }
+
+        }
+
+        public void LoadBusInfo(DataGridView dataGrid)
+        {
+            try
+            {
+                con.Open();
+                string sql = "select * from Bus";
+                OracleCommand oracleCommand = new OracleCommand();
+
+                oracleCommand.CommandText = sql;
+                oracleCommand.Connection = con;
+
+
+                DataTable dataTable = new DataTable();
+
+                // Fill the DataTable with the results of the SELECT query
+                OracleDataReader reader = oracleCommand.ExecuteReader();
+
+                dataTable.Load(reader);
+
+                dataGrid.DataSource = dataTable;
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message); con.Close();
+            }
+        }
+
         public bool AddNewStation(string stationName)
         {
             string insertQuery = "INSERT INTO Station (StationName) VALUES (:stationname)";

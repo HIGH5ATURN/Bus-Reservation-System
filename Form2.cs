@@ -39,11 +39,7 @@ namespace Bus_Reservation_System
 
         private void btn_AddNewStation_Click(object sender, EventArgs e)
         {
-
             new AddNewStationForm().Show();
-
-
-
         }
 
         private void btn_AddNewRoute_Click(object sender, EventArgs e)
@@ -51,6 +47,20 @@ namespace Bus_Reservation_System
             Hide();
 
             new AddRouteForm().Show();
+        }
+
+        private void btn_AddnewBus_Click(object sender, EventArgs e)
+        {
+            Hide();
+
+            new AddBusForm().Show();
+
+        }
+
+        private void btn_viewAll_Bus_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new List_Bus_Form().Show();
         }
     }
 }
