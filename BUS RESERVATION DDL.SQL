@@ -6,7 +6,7 @@ Create table Driver
     ContactNumber varchar2(11),
     DOB Date,
     CONSTRAINT pk_Driver primary key(DriverID),
-        CONSTRAINT check_DrivercontactNumber_format
+        CONSTRAINT check_ReceptionistcontactNumber_format
     CHECK (REGEXP_LIKE(ContactNumber, '^01[0-9]{9}'))
 );
 
@@ -35,7 +35,7 @@ CREATE TABLE Conductor
   ContactNumber varchar2(11) ,
       DOB Date,
   CONSTRAINT pk_Conductor primary key(ConductorID),
-      CONSTRAINT check_ConductorcontactNumber_format
+      CONSTRAINT check_ReceptionistcontactNumber_format
     CHECK (REGEXP_LIKE(ContactNumber, '^01[0-9]{9}'))
 );
 
@@ -211,3 +211,33 @@ BEGIN
   :new.DriverID:=genDriverID(:new.DoB);
 END;
 /
+
+select * from Receptionist where REGEXP_LIKE(contactNumber, '^01[0-9]{9}');
+
+ALTER TABLE Passenger
+ADD CONSTRAINT check_Passenger_email
+check ( email like '%@%.com');
+
+delete
+from Driver
+where DriverID='R200308001';
+
+
+
+
+--Add route trigger and function
+Create sequence seq_route
+minvalue 1
+maxvalue 9999
+start with 1;
+CREATE OR REPLACE TRIGGER Route_ID_trigger
+BEFORE INSERT ON Route
+FOR EACH ROW
+BEGIN
+  :new.RouteID:=seq_route.nextval;
+END;
+/
+
+
+
+

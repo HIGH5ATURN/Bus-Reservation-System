@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\DBMS PROJECT\\Bus-Reservation-System\\Bus Reservation System.csproj": {}
+    "D:\\2.2 LABS\\DATABASE PROJECT\\Bus-Reservation-System\\Bus Reservation System.csproj": {}
   },
   "projects": {
-    "E:\\DBMS PROJECT\\Bus-Reservation-System\\Bus Reservation System.csproj": {
+    "D:\\2.2 LABS\\DATABASE PROJECT\\Bus-Reservation-System\\Bus Reservation System.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\DBMS PROJECT\\Bus-Reservation-System\\Bus Reservation System.csproj",
+        "projectUniqueName": "D:\\2.2 LABS\\DATABASE PROJECT\\Bus-Reservation-System\\Bus Reservation System.csproj",
         "projectName": "Bus Reservation System",
-        "projectPath": "E:\\DBMS PROJECT\\Bus-Reservation-System\\Bus Reservation System.csproj",
+        "projectPath": "D:\\2.2 LABS\\DATABASE PROJECT\\Bus-Reservation-System\\Bus Reservation System.csproj",
         "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-        "outputPath": "E:\\DBMS PROJECT\\Bus-Reservation-System\\obj\\",
+        "outputPath": "D:\\2.2 LABS\\DATABASE PROJECT\\Bus-Reservation-System\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -64,7 +64,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
