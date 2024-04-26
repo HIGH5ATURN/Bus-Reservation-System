@@ -410,5 +410,102 @@ namespace Bus_Reservation_System
 
             return Stations;
         }
+
+
+        public void AddRoute(Route route)
+        {
+            string insertQuery = "INSERT INTO Route (origin,destination, distance,hour,min) VALUES (:origin,:dest ,:distance,:hour,:min)";
+            try
+            {
+
+                con.Open();
+
+                OracleCommand command = new OracleCommand();
+
+                command.CommandText = insertQuery;
+                command.Connection = con;
+
+
+                command.Parameters.Add(":origin", OracleDbType.Varchar2).Value = route.origin;
+                command.Parameters.Add(":dest", OracleDbType.Varchar2).Value = route.destination;
+                command.Parameters.Add(":distance", OracleDbType.Int32).Value = route.distance;
+                command.Parameters.Add(":hour", OracleDbType.Int32).Value = route.hour;
+                command.Parameters.Add(":min", OracleDbType.Int32).Value = route.minute;
+                int rowsInserted = command.ExecuteNonQuery();
+
+                con.Close();
+
+                if (rowsInserted > 0)
+                {
+                    MessageBox.Show("Successfully Added a new Route!");
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Failed to add the Route!");
+                }
+                con.Close() ;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred(Route): " + ex.Message);
+                con.Close();
+
+            }
+        }
+
+        public List<Route> loadRoutes()
+        {
+            List<Route> Routes = new List<Route>();
+            try
+            {
+                con.Open();
+                string sql = "select * from Route";
+                OracleCommand oracleCommand = new OracleCommand();
+
+                oracleCommand.CommandText = sql;
+                oracleCommand.Connection = con;
+
+
+
+
+                // Fill the DataTable with the results of the SELECT query
+                OracleDataReader reader = oracleCommand.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                   int id= Convert.ToInt32( reader[0].ToString());
+
+                    string origin= reader[1].ToString();
+
+                    string destination= reader[2].ToString();
+
+                    int distance= Convert.ToInt32(reader[3].ToString());
+
+                    int hour = Convert.ToInt32(reader[4].ToString());
+
+                    int min = Convert.ToInt32(reader[5].ToString());
+
+                    Route route = new Route(id, origin, destination, distance, hour, min);
+                    
+                    Routes.Add(route);
+
+                }
+
+
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                con.Close();
+            }
+
+
+            return Routes;
+        }
     }
 }
