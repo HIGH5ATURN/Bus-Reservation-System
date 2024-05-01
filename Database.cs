@@ -1,4 +1,5 @@
-﻿using Oracle.ManagedDataAccess.Client;
+﻿using Microsoft.VisualBasic.Devices;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -254,6 +255,43 @@ namespace Bus_Reservation_System
                 MessageBox.Show(ex.Message); con.Close();
             }
         }
+        public List<Driver> LoadDriverInfo()
+        {
+            List<Driver> driverList = new List<Driver>();
+            try
+            {
+                con.Open();
+                string sql = "select * from Driver";
+                OracleCommand oracleCommand = new OracleCommand();
+
+                oracleCommand.CommandText = sql;
+                oracleCommand.Connection = con;
+
+
+
+
+                // Fill the DataTable with the results of the SELECT query
+                OracleDataReader reader = oracleCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    DateOnly date = Utility.ConvertToDate(reader.GetString(4));
+
+                    Driver driver = new Driver(reader.GetString(0),reader.GetString(1),Convert.ToInt32(reader.GetString(2)),reader.GetString(3),date );
+
+                    driverList.Add(driver);
+                }
+
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message); con.Close();
+            }
+
+            return driverList;
+        }
 
         public bool AddBus(Bus bus)
         {
@@ -328,6 +366,39 @@ namespace Bus_Reservation_System
             }
         }
 
+
+        public List<Bus> LoadBusInfo()
+        {
+            List<Bus> busList= new List<Bus>();
+            try
+            {
+                con.Open();
+                string sql = "select * from Bus";
+                OracleCommand oracleCommand = new OracleCommand();
+
+                oracleCommand.CommandText = sql;
+                oracleCommand.Connection = con;
+
+
+ 
+                OracleDataReader reader = oracleCommand.ExecuteReader();
+
+                while(reader.Read())
+                {
+                    Bus bus = new Bus(reader.GetString(0),reader.GetString(1),Convert.ToInt32(reader.GetString(2)) );
+                    busList.Add(bus);
+                }
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message); con.Close();
+            }
+
+
+            return busList;
+        }
         public bool AddNewStation(string stationName)
         {
             string insertQuery = "INSERT INTO Station (StationName) VALUES (:stationname)";
@@ -506,6 +577,52 @@ namespace Bus_Reservation_System
 
 
             return Routes;
+        }
+
+
+        public void AddNewSchedule(Schedule schedule)
+        {
+            string insertQuery = "INSERT INTO Schedule (departuretime,arrivaltime, fare,routeid,busnumber,driverid) VALUES (:depttime,:arrtime ,:fr,:rID,:bNum,:dID)";
+            try
+            {
+
+                con.Open();
+
+                OracleCommand command = new OracleCommand();
+
+                command.CommandText = insertQuery;
+                command.Connection = con;
+
+
+                command.Parameters.Add(":depttime", OracleDbType.Date).Value = schedule.departureTime;
+                command.Parameters.Add(":arrtime", OracleDbType.Date).Value = schedule.arrivalTime;
+                command.Parameters.Add(":fr", OracleDbType.Double).Value = schedule.fare;
+                command.Parameters.Add(":rID", OracleDbType.Int32).Value = schedule.RouteID;
+                command.Parameters.Add(":bNum", OracleDbType.Varchar2).Value = schedule.busNumber;
+                command.Parameters.Add(":dID", OracleDbType.Varchar2).Value = schedule.driverID;
+
+                int rowsInserted = command.ExecuteNonQuery();
+
+                con.Close();
+
+                if (rowsInserted > 0)
+                {
+                    MessageBox.Show("Successfully Added a new Schedule!");
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Failed to add the Schedule!");
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred(Route): " + ex.Message);
+                con.Close();
+
+            }
         }
     }
 }

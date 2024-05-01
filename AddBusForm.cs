@@ -27,7 +27,7 @@ namespace Bus_Reservation_System
         {
             try
             {
-                Bus bus = new Bus(txt_Bus_Number.Text, txt_Model.Text, txt_capacity.Text);
+                Bus bus = new Bus(txt_Bus_Number.Text, txt_Model.Text,Convert.ToInt32( txt_capacity.Text));
 
                 if (database.AddBus(bus))
                 {

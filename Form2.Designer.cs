@@ -41,6 +41,7 @@
             btn_goBack = new Button();
             btn_ViewAllDriver = new Button();
             btn_viewAll_Bus = new Button();
+            btn_Add_Schedule = new Button();
             SuspendLayout();
             // 
             // btn_AddNewDriver
@@ -74,7 +75,7 @@
             btn_AddNewStation.BackColor = SystemColors.Highlight;
             btn_AddNewStation.FlatStyle = FlatStyle.Flat;
             btn_AddNewStation.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_AddNewStation.Location = new Point(402, 119);
+            btn_AddNewStation.Location = new Point(193, 386);
             btn_AddNewStation.Name = "btn_AddNewStation";
             btn_AddNewStation.Size = new Size(203, 83);
             btn_AddNewStation.TabIndex = 8;
@@ -132,7 +133,7 @@
             btn_viewTodaysSchedules.BackColor = Color.PaleGreen;
             btn_viewTodaysSchedules.FlatStyle = FlatStyle.Flat;
             btn_viewTodaysSchedules.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_viewTodaysSchedules.Location = new Point(402, 208);
+            btn_viewTodaysSchedules.Location = new Point(402, 386);
             btn_viewTodaysSchedules.Name = "btn_viewTodaysSchedules";
             btn_viewTodaysSchedules.Size = new Size(203, 83);
             btn_viewTodaysSchedules.TabIndex = 13;
@@ -176,7 +177,7 @@
             btn_ViewAllDriver.BackColor = Color.LightCoral;
             btn_ViewAllDriver.FlatStyle = FlatStyle.Flat;
             btn_ViewAllDriver.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_ViewAllDriver.Location = new Point(193, 386);
+            btn_ViewAllDriver.Location = new Point(402, 208);
             btn_ViewAllDriver.Name = "btn_ViewAllDriver";
             btn_ViewAllDriver.Size = new Size(203, 83);
             btn_ViewAllDriver.TabIndex = 17;
@@ -189,7 +190,7 @@
             btn_viewAll_Bus.BackColor = Color.GreenYellow;
             btn_viewAll_Bus.FlatStyle = FlatStyle.Flat;
             btn_viewAll_Bus.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_viewAll_Bus.Location = new Point(402, 386);
+            btn_viewAll_Bus.Location = new Point(402, 119);
             btn_viewAll_Bus.Name = "btn_viewAll_Bus";
             btn_viewAll_Bus.Size = new Size(203, 83);
             btn_viewAll_Bus.TabIndex = 18;
@@ -197,11 +198,25 @@
             btn_viewAll_Bus.UseVisualStyleBackColor = false;
             btn_viewAll_Bus.Click += btn_viewAll_Bus_Click;
             // 
+            // btn_Add_Schedule
+            // 
+            btn_Add_Schedule.BackColor = SystemColors.ActiveCaption;
+            btn_Add_Schedule.FlatStyle = FlatStyle.Flat;
+            btn_Add_Schedule.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_Add_Schedule.Location = new Point(193, 475);
+            btn_Add_Schedule.Name = "btn_Add_Schedule";
+            btn_Add_Schedule.Size = new Size(203, 83);
+            btn_Add_Schedule.TabIndex = 19;
+            btn_Add_Schedule.Text = "Add a Scedule";
+            btn_Add_Schedule.UseVisualStyleBackColor = false;
+            btn_Add_Schedule.Click += btn_Add_Schedule_Click;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1306, 662);
+            Controls.Add(btn_Add_Schedule);
             Controls.Add(btn_viewAll_Bus);
             Controls.Add(btn_ViewAllDriver);
             Controls.Add(btn_goBack);
@@ -236,5 +251,6 @@
         private Button btn_goBack;
         private Button btn_ViewAllDriver;
         private Button btn_viewAll_Bus;
+        private Button btn_Add_Schedule;
     }
 }
