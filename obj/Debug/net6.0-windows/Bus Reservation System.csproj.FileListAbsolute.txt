@@ -167,3 +167,4 @@ D:\2.2 LABS\DATABASE PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\ref
 D:\2.2 LABS\DATABASE PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus Reservation System.pdb
 D:\2.2 LABS\DATABASE PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus Reservation System.genruntimeconfig.cache
 D:\2.2 LABS\DATABASE PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\ref\Bus Reservation System.dll
+D:\2.2 LABS\DATABASE PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus_Reservation_System.Create_Schedule.resources

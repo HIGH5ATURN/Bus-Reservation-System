@@ -27,7 +27,6 @@ namespace Bus_Reservation_System
         {
             Hide();
 
-            new Form2().Show();
         }
 
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
