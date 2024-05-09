@@ -33,7 +33,7 @@ namespace Bus_Reservation_System
 
         private void btn_ViewAllDriver_Click(object sender, EventArgs e)
         {
-           
+
             new DriverInfoForm().Show();
         }
 
@@ -65,9 +65,31 @@ namespace Bus_Reservation_System
 
         private void btn_Add_Schedule_Click(object sender, EventArgs e)
         {
-           
+
 
             new Create_Schedule().Show();
+        }
+
+        private void btn_viewTodaysSchedules_Click(object sender, EventArgs e)
+        {
+            new AllScheduleForm().Show();
+        }
+
+        private void btn_viewAllRoutes_Click(object sender, EventArgs e)
+        {
+            new AllRoutesForm().Show();
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_BookTicket_Click(object sender, EventArgs e)
+        {
+            Hide();
+
+            new TicketBookingForm().Show();
         }
     }
 }

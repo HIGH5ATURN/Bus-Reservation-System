@@ -36,7 +36,7 @@
             label1 = new Label();
             label2 = new Label();
             btn_viewTodaysSchedules = new Button();
-            btn_viewTrips = new Button();
+            btn_viewAllRoutes = new Button();
             panel1 = new Panel();
             btn_goBack = new Button();
             btn_ViewAllDriver = new Button();
@@ -107,6 +107,7 @@
             btn_BookTicket.TabIndex = 10;
             btn_BookTicket.Text = "Book Ticket for a passenger";
             btn_BookTicket.UseVisualStyleBackColor = false;
+            btn_BookTicket.Click += btn_BookTicket_Click;
             // 
             // label1
             // 
@@ -137,20 +138,22 @@
             btn_viewTodaysSchedules.Name = "btn_viewTodaysSchedules";
             btn_viewTodaysSchedules.Size = new Size(203, 83);
             btn_viewTodaysSchedules.TabIndex = 13;
-            btn_viewTodaysSchedules.Text = "View Todays Schedules";
+            btn_viewTodaysSchedules.Text = "View All  Schedules";
             btn_viewTodaysSchedules.UseVisualStyleBackColor = false;
+            btn_viewTodaysSchedules.Click += btn_viewTodaysSchedules_Click;
             // 
-            // btn_viewTrips
+            // btn_viewAllRoutes
             // 
-            btn_viewTrips.BackColor = Color.Turquoise;
-            btn_viewTrips.FlatStyle = FlatStyle.Flat;
-            btn_viewTrips.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_viewTrips.Location = new Point(402, 297);
-            btn_viewTrips.Name = "btn_viewTrips";
-            btn_viewTrips.Size = new Size(203, 83);
-            btn_viewTrips.TabIndex = 14;
-            btn_viewTrips.Text = "View Trips";
-            btn_viewTrips.UseVisualStyleBackColor = false;
+            btn_viewAllRoutes.BackColor = Color.Turquoise;
+            btn_viewAllRoutes.FlatStyle = FlatStyle.Flat;
+            btn_viewAllRoutes.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_viewAllRoutes.Location = new Point(402, 297);
+            btn_viewAllRoutes.Name = "btn_viewAllRoutes";
+            btn_viewAllRoutes.Size = new Size(203, 83);
+            btn_viewAllRoutes.TabIndex = 14;
+            btn_viewAllRoutes.Text = "View All Routes";
+            btn_viewAllRoutes.UseVisualStyleBackColor = false;
+            btn_viewAllRoutes.Click += btn_viewAllRoutes_Click;
             // 
             // panel1
             // 
@@ -221,7 +224,7 @@
             Controls.Add(btn_ViewAllDriver);
             Controls.Add(btn_goBack);
             Controls.Add(panel1);
-            Controls.Add(btn_viewTrips);
+            Controls.Add(btn_viewAllRoutes);
             Controls.Add(btn_viewTodaysSchedules);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -232,6 +235,7 @@
             Controls.Add(btn_AddNewDriver);
             Name = "Form2";
             Text = "Form2";
+            Load += Form2_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -246,7 +250,7 @@
         private Label label1;
         private Label label2;
         private Button btn_viewTodaysSchedules;
-        private Button btn_viewTrips;
+        private Button btn_viewAllRoutes;
         private Panel panel1;
         private Button btn_goBack;
         private Button btn_ViewAllDriver;
