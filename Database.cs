@@ -624,5 +624,184 @@ namespace Bus_Reservation_System
 
             }
         }
+
+        public void ShowAllSchedule(DataGridView dataGrid)
+        {
+            try
+            {
+                con.Open();
+                string sql = "select SCHEDULEID as SChedule_ID, Routeid as Route_ID,Origin, Destination,DEPARTURETIME as Departure_Time ,ARRIVALTIME as Arrival_Time,Fare,Name as Driver_Name, busnumber as Bus_Number from Schedule natural join Driver natural join Route";
+                OracleCommand oracleCommand = new OracleCommand();
+
+                oracleCommand.CommandText = sql;
+                oracleCommand.Connection = con;
+
+
+                DataTable dataTable = new DataTable();
+
+                // Fill the DataTable with the results of the SELECT query
+                OracleDataReader reader = oracleCommand.ExecuteReader();
+
+                dataTable.Load(reader);
+
+                dataGrid.DataSource = dataTable;
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message); con.Close();
+            }
+        }
+
+        public void ShowAllRoutes(DataGridView dataGrid)
+        {
+            try
+            {
+                con.Open();
+                string sql = "select * from Route";
+                OracleCommand oracleCommand = new OracleCommand();
+
+                oracleCommand.CommandText = sql;
+                oracleCommand.Connection = con;
+
+
+                DataTable dataTable = new DataTable();
+
+                // Fill the DataTable with the results of the SELECT query
+                OracleDataReader reader = oracleCommand.ExecuteReader();
+
+                dataTable.Load(reader);
+
+                dataGrid.DataSource = dataTable;
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message); con.Close();
+            }
+        }
+
+        public void ShowFilteredSchedule(DataGridView dataGrid)
+        {//This Form will Show the Available Schedule
+         //based on Departure Date which will be greater and equal to current Date --DONE
+         //based on if the driver isnt assigned to any other schedule on that particular time segment-- not done
+         //this has to be done from selection I wont let anyone select drivers that are busy in that particular time segment
+         //based on if the bus is available <--//same as driver id for this one
+
+            try
+            {
+                con.Open();
+                string sql = "select * from Schedule where DEPARTURETIME>=Sysdate";
+             
+                OracleCommand oracleCommand = new OracleCommand();
+
+                oracleCommand.CommandText = sql;
+                oracleCommand.Connection = con;
+
+
+                DataTable dataTable = new DataTable();
+
+                // Fill the DataTable with the results of the SELECT query
+                OracleDataReader reader = oracleCommand.ExecuteReader();
+
+                dataTable.Load(reader);
+
+                dataGrid.DataSource = dataTable;
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message); con.Close();
+            }
+        }
+
+
+        public bool insertSchedule(Schedule schedule)
+        {
+
+            try
+            {
+                Boolean isInserted = false;
+                con.Open();
+
+                OracleCommand command = new OracleCommand();
+                command.Connection = con;
+                command.CommandText = "InsertSchedule";
+                command.CommandType = CommandType.StoredProcedure;
+
+
+
+                OracleParameter retval = new OracleParameter("ret", OracleDbType.Varchar2, 20);
+                retval.Direction = ParameterDirection.ReturnValue;
+                command.Parameters.Add(retval);
+
+
+                //p_depTime parameter
+                OracleParameter p_depTime = new OracleParameter("p_depTime", OracleDbType.Date);
+                p_depTime.Direction = ParameterDirection.Input;
+                p_depTime.Value = schedule.departureTime;
+                command.Parameters.Add(p_depTime);
+
+
+                //p_arrival_Time parameter
+                OracleParameter p_arrival_Time = new OracleParameter("p_arrival_Time", OracleDbType.Date);
+                p_arrival_Time.Direction = ParameterDirection.Input;
+                p_arrival_Time.Value = schedule.arrivalTime;
+                command.Parameters.Add(p_arrival_Time);
+
+
+                //p_fare parameter
+                OracleParameter p_fare = new OracleParameter("p_fare", OracleDbType.Double);
+                p_fare.Direction = ParameterDirection.Input;
+                p_fare.Value = schedule.fare;
+                command.Parameters.Add(p_fare);
+
+                //p_RouteID parameter
+                OracleParameter p_RouteID = new OracleParameter("p_RouteID", OracleDbType.Double);
+                p_RouteID.Direction = ParameterDirection.Input;
+                p_RouteID.Value = schedule.RouteID;
+                command.Parameters.Add(p_RouteID);
+
+
+                //p_RouteID parameter
+                OracleParameter p_busNumber = new OracleParameter("p_busNumber", OracleDbType.Varchar2);
+                p_busNumber.Direction = ParameterDirection.Input;
+                p_busNumber.Value = schedule.busNumber;
+                command.Parameters.Add(p_busNumber);
+
+
+                //p_driverID parameter
+                OracleParameter p_driverID = new OracleParameter("p_driverID", OracleDbType.Varchar2);
+                p_driverID.Direction = ParameterDirection.Input;
+                p_driverID.Value = schedule.driverID;
+                command.Parameters.Add(p_driverID);
+
+
+
+                command.ExecuteNonQuery();
+                //MessageBox.Show(command.Parameters["ret"].Value.ToString());
+                if (command.Parameters["ret"].Value.ToString() == "inserted")
+                {
+                    isInserted = true;
+                    MessageBox.Show("Schedule Created Successfully!");
+
+                }
+
+
+
+                con.Close();
+                return isInserted;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Schedule insertion error: " + ex.Message);
+                con.Close();
+                return false;
+            }
+        }
     }
 }

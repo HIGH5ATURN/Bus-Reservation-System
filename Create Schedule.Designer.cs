@@ -40,9 +40,6 @@
             cmb_DepartureTime = new ComboBox();
             label6 = new Label();
             calender = new MonthCalendar();
-            label7 = new Label();
-            txt_Expected_ArrivalTime = new TextBox();
-            btn_calcExpectedArrivalTime = new Button();
             txt_fare = new TextBox();
             label8 = new Label();
             SuspendLayout();
@@ -84,7 +81,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label3.Location = new Point(66, 354);
+            label3.Location = new Point(66, 480);
             label3.Name = "label3";
             label3.Size = new Size(152, 41);
             label3.TabIndex = 14;
@@ -94,7 +91,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label4.Location = new Point(66, 228);
+            label4.Location = new Point(66, 354);
             label4.Name = "label4";
             label4.Size = new Size(187, 41);
             label4.TabIndex = 15;
@@ -104,7 +101,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label5.Location = new Point(66, 475);
+            label5.Location = new Point(66, 228);
             label5.Name = "label5";
             label5.Size = new Size(315, 41);
             label5.TabIndex = 16;
@@ -121,7 +118,7 @@
             // cmb_Driver
             // 
             cmb_Driver.FormattingEnabled = true;
-            cmb_Driver.Location = new Point(66, 285);
+            cmb_Driver.Location = new Point(66, 411);
             cmb_Driver.Name = "cmb_Driver";
             cmb_Driver.Size = new Size(315, 28);
             cmb_Driver.TabIndex = 18;
@@ -129,7 +126,7 @@
             // cmb_Bus
             // 
             cmb_Bus.FormattingEnabled = true;
-            cmb_Bus.Location = new Point(66, 410);
+            cmb_Bus.Location = new Point(66, 536);
             cmb_Bus.Name = "cmb_Bus";
             cmb_Bus.Size = new Size(315, 28);
             cmb_Bus.TabIndex = 19;
@@ -138,10 +135,11 @@
             // 
             cmb_DepartureTime.FormattingEnabled = true;
             cmb_DepartureTime.Items.AddRange(new object[] { "07:00", "20:00" });
-            cmb_DepartureTime.Location = new Point(66, 539);
+            cmb_DepartureTime.Location = new Point(66, 292);
             cmb_DepartureTime.Name = "cmb_DepartureTime";
             cmb_DepartureTime.Size = new Size(315, 28);
             cmb_DepartureTime.TabIndex = 20;
+            cmb_DepartureTime.SelectedIndexChanged += cmb_DepartureTime_SelectedIndexChanged;
             // 
             // label6
             // 
@@ -158,38 +156,6 @@
             calender.Location = new Point(461, 278);
             calender.Name = "calender";
             calender.TabIndex = 22;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(461, 533);
-            label7.Name = "label7";
-            label7.Size = new Size(241, 31);
-            label7.TabIndex = 24;
-            label7.Text = "Expected Arrival Time";
-            // 
-            // txt_Expected_ArrivalTime
-            // 
-            txt_Expected_ArrivalTime.BorderStyle = BorderStyle.None;
-            txt_Expected_ArrivalTime.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_Expected_ArrivalTime.Location = new Point(469, 577);
-            txt_Expected_ArrivalTime.Name = "txt_Expected_ArrivalTime";
-            txt_Expected_ArrivalTime.Size = new Size(233, 31);
-            txt_Expected_ArrivalTime.TabIndex = 23;
-            // 
-            // btn_calcExpectedArrivalTime
-            // 
-            btn_calcExpectedArrivalTime.BackColor = Color.Turquoise;
-            btn_calcExpectedArrivalTime.FlatStyle = FlatStyle.Flat;
-            btn_calcExpectedArrivalTime.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_calcExpectedArrivalTime.Location = new Point(508, 614);
-            btn_calcExpectedArrivalTime.Name = "btn_calcExpectedArrivalTime";
-            btn_calcExpectedArrivalTime.Size = new Size(162, 38);
-            btn_calcExpectedArrivalTime.TabIndex = 25;
-            btn_calcExpectedArrivalTime.Text = "Calculate Expected time";
-            btn_calcExpectedArrivalTime.UseVisualStyleBackColor = false;
-            btn_calcExpectedArrivalTime.Click += btn_calcExpectedArrivalTime_Click;
             // 
             // txt_fare
             // 
@@ -217,9 +183,6 @@
             ClientSize = new Size(780, 816);
             Controls.Add(txt_fare);
             Controls.Add(label8);
-            Controls.Add(btn_calcExpectedArrivalTime);
-            Controls.Add(label7);
-            Controls.Add(txt_Expected_ArrivalTime);
             Controls.Add(calender);
             Controls.Add(label6);
             Controls.Add(cmb_DepartureTime);
@@ -253,9 +216,6 @@
         private ComboBox cmb_DepartureTime;
         private Label label6;
         private MonthCalendar calender;
-        private Label label7;
-        private TextBox txt_Expected_ArrivalTime;
-        private Button btn_calcExpectedArrivalTime;
         private TextBox txt_fare;
         private Label label8;
     }

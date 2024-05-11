@@ -35,7 +35,7 @@ namespace Bus_Reservation_System
 
             string depTime = cmb_DepartureTime.Text;
 
-            double fare= Convert.ToDouble(txt_fare.Text);
+            double fare = Convert.ToDouble(txt_fare.Text);
 
             DateOnly date = DateOnly.Parse(calender.SelectionRange.Start.ToShortDateString(), CultureInfo.InvariantCulture);
 
@@ -116,8 +116,8 @@ namespace Bus_Reservation_System
             Schedule schedule = new Schedule(depdateTime, ArrivaldateTime, fare, route.ID, bus.BusNumber, driver.DriverID);
 
             MessageBox.Show(schedule.arrivalTime.ToString(), "EXPECTED ARRIVAL TIME");
-
-            db.AddNewSchedule(schedule);
+            db.insertSchedule(schedule);
+           // db.AddNewSchedule(schedule);
         }
 
         private void Create_Schedule_Load(object sender, EventArgs e)
@@ -149,8 +149,18 @@ namespace Bus_Reservation_System
             //just use the datagrid view method to load these
         }
 
-        private void btn_calcExpectedArrivalTime_Click(object sender, EventArgs e)
+        private void cmb_DepartureTime_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(cmb_SelectRoute.SelectedIndex == -1)
+            {
+                return;
+            }
+
+            //now I need to add drivers that are not in that specific time segment
+            //I can handle this from backend-database using function--which will think if to insert or not
+            //based on driver availability and bus avilability
+            
+
 
 
         }
