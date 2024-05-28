@@ -15,6 +15,8 @@ namespace Bus_Reservation_System
         private Database() { }
 
         private static Database instance;
+        
+        //just added two lines to see if git working
 
         public static Database GetInstance()
         {
