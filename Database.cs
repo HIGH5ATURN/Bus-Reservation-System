@@ -299,7 +299,7 @@ namespace Bus_Reservation_System
 
         public bool AddBus(Bus bus)
         {
-            string insertQuery = "INSERT INTO Bus (BusNumber,model,capacity) VALUES (:bus_number,:model ,:capacity)";
+            string insertQuery = "INSERT INTO Bus (BusNumber,model,capacity) VALUES (:bus_number,:model ,:capacity,:AVAILABLESEATS)";
             try
             {
 
@@ -313,7 +313,8 @@ namespace Bus_Reservation_System
 
                 command.Parameters.Add(":bus_number", OracleDbType.Varchar2).Value = bus.BusNumber;
                 command.Parameters.Add(":model", OracleDbType.Varchar2).Value = bus.BusModel;
-                command.Parameters.Add(":capacity", OracleDbType.Varchar2).Value = bus.Capacity;
+                command.Parameters.Add(":capacity", OracleDbType.Int32).Value = bus.Capacity;
+                command.Parameters.Add(":AVAILABLESEATS", OracleDbType.Int32).Value = bus.Capacity;
 
                 int rowsInserted = command.ExecuteNonQuery();
 
@@ -687,17 +688,17 @@ namespace Bus_Reservation_System
             }
         }
 
-        public void ShowFilteredSchedule(DataGridView dataGrid)
+        public DataTable ShowFilteredSchedule()
         {//This Form will Show the Available Schedule
          //based on Departure Date which will be greater and equal to current Date --DONE
          //based on if the driver isnt assigned to any other schedule on that particular time segment-- not done
          //this has to be done from selection I wont let anyone select drivers that are busy in that particular time segment
          //based on if the bus is available <--//same as driver id for this one
-
+            DataTable dataTable=null;
             try
             {
                 con.Open();
-                string sql = "select * from Schedule where DEPARTURETIME>=Sysdate";
+                string sql = "select SCHEDULEID as SChedule_ID, Routeid as Route_ID,Origin, Destination,DEPARTURETIME as Departure_Time ,ARRIVALTIME as Arrival_Time,Fare,Name as Driver_Name, busnumber as Bus_Number from Schedule natural join Driver natural join Route where DEPARTURETIME>=Sysdate";
              
                 OracleCommand oracleCommand = new OracleCommand();
 
@@ -705,14 +706,14 @@ namespace Bus_Reservation_System
                 oracleCommand.Connection = con;
 
 
-                DataTable dataTable = new DataTable();
+                 dataTable = new DataTable();
 
                 // Fill the DataTable with the results of the SELECT query
                 OracleDataReader reader = oracleCommand.ExecuteReader();
 
                 dataTable.Load(reader);
 
-                dataGrid.DataSource = dataTable;
+                
 
                 con.Close();
             }
@@ -720,6 +721,8 @@ namespace Bus_Reservation_System
             {
                 MessageBox.Show(ex.Message); con.Close();
             }
+
+            return dataTable;
         }
 
 
@@ -805,6 +808,198 @@ namespace Bus_Reservation_System
                 MessageBox.Show("Schedule insertion error: " + ex.Message);
                 con.Close();
                 return false;
+            }
+        }
+
+
+        public Bus FindBusCapacity(string BusNumber)
+        {
+            Bus bus=null;
+            try
+            {
+                con.Open();
+                string sql = "select * from Bus where BUSNUMBER = "+BusNumber;
+
+                OracleCommand oracleCommand = new OracleCommand();
+
+                oracleCommand.CommandText = sql;
+                oracleCommand.Connection = con;
+
+
+             
+
+                // Fill the DataTable with the results of the SELECT query
+                OracleDataReader reader = oracleCommand.ExecuteReader();
+                while (reader.Read())
+                {
+                    bus = new Bus(reader.GetString(0), reader.GetString(1), Convert.ToInt32(reader.GetString(2)));
+                }
+              
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("db error: "+ex.Message); con.Close();
+            }
+
+            return bus;
+        }
+
+        public bool IsThisSeatFree(string seatNo,string ScheduleID)
+        {
+            try
+            {
+                Boolean free = false;
+                con.Open();
+
+                OracleCommand command = new OracleCommand();
+                command.Connection = con;
+                command.CommandText = "ISTHISSEATFREE";
+                command.CommandType = CommandType.StoredProcedure;
+
+
+
+                OracleParameter retval = new OracleParameter("ret", OracleDbType.Varchar2, 20);
+                retval.Direction = ParameterDirection.ReturnValue;
+                command.Parameters.Add(retval);
+
+
+                //p_id parameter
+                OracleParameter p_SeatNo = new OracleParameter("p_SeatNo", OracleDbType.Varchar2);
+                p_SeatNo.Direction = ParameterDirection.Input;
+                p_SeatNo.Value = seatNo;
+                command.Parameters.Add(p_SeatNo);
+                //MessageBox.Show(p_id.Value.ToString());
+                //p_pass parameter
+                OracleParameter p_ScheduleID = new OracleParameter("p_ScheduleID", OracleDbType.Int32);
+                p_ScheduleID.Direction = ParameterDirection.Input;
+                p_ScheduleID.Value = ScheduleID;
+                command.Parameters.Add(p_ScheduleID);
+
+                //now for return 
+
+                command.ExecuteNonQuery();
+                //MessageBox.Show(command.Parameters["ret"].Value.ToString());
+                if (command.Parameters["ret"].Value.ToString() == "true")
+                {
+                    free = true;
+
+                }
+
+
+
+                con.Close();
+                return free;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Seat error: " + ex.Message);
+                con.Close();
+                return false;
+            }
+        }
+
+
+        public void BookTicket(Passenger passenger, Reservation reservation)
+        {
+            try
+            {
+                
+                con.Open();
+
+                OracleCommand command = new OracleCommand();
+                command.Connection = con;
+                command.CommandText = "MakeAReservation";
+                command.CommandType = CommandType.StoredProcedure;
+
+
+                //p_passengerName parameter
+                OracleParameter p_passengerName = new OracleParameter("p_passengerName", OracleDbType.Varchar2);
+                p_passengerName.Direction = ParameterDirection.Input;
+                p_passengerName.Value = passenger.Name;
+                command.Parameters.Add(p_passengerName);
+
+                //p_Email parameter
+                OracleParameter p_Email = new OracleParameter("p_Email", OracleDbType.Varchar2);
+                p_Email.Direction = ParameterDirection.Input;
+                p_Email.Value = passenger.email;
+                command.Parameters.Add(p_Email);
+
+                //p_phone parameter
+                OracleParameter p_phone = new OracleParameter("p_phone", OracleDbType.Varchar2);
+                p_phone.Direction = ParameterDirection.Input;
+                p_phone.Value = passenger.phone;
+                command.Parameters.Add(p_phone);
+                //p_seatNo parameter
+                OracleParameter p_seatNo = new OracleParameter("p_seatNo", OracleDbType.Varchar2);
+                p_seatNo.Direction = ParameterDirection.Input;
+                p_seatNo.Value = reservation.SeatNo;
+                command.Parameters.Add(p_seatNo);
+                //p_ReservationDate parameter
+                OracleParameter p_ReservationDate = new OracleParameter("p_ReservationDate", OracleDbType.Date);
+                p_ReservationDate.Direction = ParameterDirection.Input;
+                p_ReservationDate.Value = reservation.ReservationTime;
+                command.Parameters.Add(p_ReservationDate);
+
+
+                //p_pass parameter
+                OracleParameter p_ScheduleID = new OracleParameter("p_ScheduleID", OracleDbType.Int32);
+                p_ScheduleID.Direction = ParameterDirection.Input;
+                p_ScheduleID.Value = reservation.ScheduleID;
+                command.Parameters.Add(p_ScheduleID);
+
+                //p_ReceptionistID parameter
+                OracleParameter p_ReceptionistID = new OracleParameter("p_ReceptionistID", OracleDbType.Varchar2);
+                p_ReceptionistID.Direction = ParameterDirection.Input;
+                p_ReceptionistID.Value = reservation.ReceptionistID;
+                command.Parameters.Add(p_ReceptionistID);
+               
+
+                command.ExecuteNonQuery();
+
+                MessageBox.Show("Reservation Added Successfully!");
+
+                con.Close();
+             
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Reservation error: " + ex.Message);
+                con.Close();
+               
+            }
+        }
+
+
+        public void LoadReservationHistory(DataGridView grid)
+        {
+            try
+            {
+                con.Open();
+                string sql = "select ReservationID,Name,PHONE,EMAIL,SeatNUMBER,ORIGIN,DESTINATION,DEPARTURETIME from Reservation natural join Passenger natural join SCHEDULE natural join ROUTE";
+                OracleCommand oracleCommand = new OracleCommand();
+
+                oracleCommand.CommandText = sql;
+                oracleCommand.Connection = con;
+
+
+                DataTable dataTable = new DataTable();
+
+                // Fill the DataTable with the results of the SELECT query
+                OracleDataReader reader = oracleCommand.ExecuteReader();
+
+                dataTable.Load(reader);
+
+                grid.DataSource = dataTable;
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message); con.Close();
             }
         }
     }

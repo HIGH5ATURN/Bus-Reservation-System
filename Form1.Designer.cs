@@ -35,7 +35,6 @@
             label3 = new Label();
             btn_Login = new Button();
             link_to_RegForm = new LinkLabel();
-            link_FogotPass = new LinkLabel();
             link_AllReceptionistLIst = new LinkLabel();
             SuspendLayout();
             // 
@@ -107,17 +106,6 @@
             link_to_RegForm.Text = "Register as a Reciptionist";
             link_to_RegForm.LinkClicked += link_to_RegForm_LinkClicked;
             // 
-            // link_FogotPass
-            // 
-            link_FogotPass.AutoSize = true;
-            link_FogotPass.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
-            link_FogotPass.Location = new Point(579, 288);
-            link_FogotPass.Name = "link_FogotPass";
-            link_FogotPass.Size = new Size(121, 20);
-            link_FogotPass.TabIndex = 7;
-            link_FogotPass.TabStop = true;
-            link_FogotPass.Text = "Forgot Password?";
-            // 
             // link_AllReceptionistLIst
             // 
             link_AllReceptionistLIst.AutoSize = true;
@@ -135,7 +123,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1003, 552);
             Controls.Add(link_AllReceptionistLIst);
-            Controls.Add(link_FogotPass);
             Controls.Add(link_to_RegForm);
             Controls.Add(btn_Login);
             Controls.Add(label3);
@@ -158,7 +145,6 @@
         private Label label3;
         private Button btn_Login;
         private LinkLabel link_to_RegForm;
-        private LinkLabel link_FogotPass;
         private LinkLabel link_AllReceptionistLIst;
     }
 }

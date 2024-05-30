@@ -42,6 +42,7 @@
             btn_ViewAllDriver = new Button();
             btn_viewAll_Bus = new Button();
             btn_Add_Schedule = new Button();
+            button1 = new Button();
             SuspendLayout();
             // 
             // btn_AddNewDriver
@@ -214,11 +215,25 @@
             btn_Add_Schedule.UseVisualStyleBackColor = false;
             btn_Add_Schedule.Click += btn_Add_Schedule_Click;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.PaleGreen;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(922, 224);
+            button1.Name = "button1";
+            button1.Size = new Size(317, 83);
+            button1.TabIndex = 20;
+            button1.Text = "View Reservation History";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1306, 662);
+            Controls.Add(button1);
             Controls.Add(btn_Add_Schedule);
             Controls.Add(btn_viewAll_Bus);
             Controls.Add(btn_ViewAllDriver);
@@ -256,5 +271,6 @@
         private Button btn_ViewAllDriver;
         private Button btn_viewAll_Bus;
         private Button btn_Add_Schedule;
+        private Button button1;
     }
 }

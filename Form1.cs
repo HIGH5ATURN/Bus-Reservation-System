@@ -3,6 +3,8 @@ namespace Bus_Reservation_System
     public partial class Form1 : Form
     {
         Database db = Database.GetInstance();
+
+
         public Form1()
         {
             InitializeComponent();
@@ -12,6 +14,7 @@ namespace Bus_Reservation_System
         {
             string encrypted = Encryption.EncryptPassword(txt_pass.Text);
             //MessageBox.Show(encrypted);
+            Utility.ReceptionistID = txt_name.Text;
             if (db.ReceptionistLogin(txt_name.Text, encrypted))
             {
                 Hide();
