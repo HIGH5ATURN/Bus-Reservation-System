@@ -40,6 +40,9 @@
     <Compile Update="RegistrationAsReceptionist.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ReservationHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="TicketBookingForm.cs">
       <SubType>Form</SubType>
     </Compile>

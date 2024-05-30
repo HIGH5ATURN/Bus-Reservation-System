@@ -87,9 +87,13 @@ namespace Bus_Reservation_System
 
         private void btn_BookTicket_Click(object sender, EventArgs e)
         {
-            Hide();
 
             new TicketBookingForm().Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new ReservationHistory().Show();
         }
     }
 }

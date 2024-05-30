@@ -171,3 +171,4 @@ D:\2.2 LABS\DATABASE PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus
 D:\2.2 LABS\DATABASE PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus_Reservation_System.AllScheduleForm.resources
 D:\2.2 LABS\DATABASE PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus_Reservation_System.AllRoutesForm.resources
 D:\2.2 LABS\DATABASE PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus_Reservation_System.TicketBookingForm.resources
+D:\2.2 LABS\DATABASE PROJECT\Bus-Reservation-System\obj\Debug\net6.0-windows\Bus_Reservation_System.ReservationHistory.resources

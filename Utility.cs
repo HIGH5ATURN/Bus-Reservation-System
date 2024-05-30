@@ -8,7 +8,7 @@ namespace Bus_Reservation_System
 {
     public static class Utility
     {
-
+        public static string ReceptionistID;
         public static DateOnly ConvertToDate(String date)
         {
             string year="";
